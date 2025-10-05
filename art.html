@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header class="site-header">
     <div class="nav-left">
@@ -20,7 +21,7 @@
       <a href="cv.pdf" target="_blank">CV</a>
     </nav>
   </header>
-  
+
   <main>
     <h2>
       Landscapes and Still Lifes
@@ -38,5 +39,27 @@
     
   </main>
 
+<script>
+document.querySelectorAll('.pan-wrapper').forEach(wrapper => {
+  const speed = 0.5; // pixels per frame; increase for faster scroll
+  let scrollPos = 0;
+
+  // Duplicate the images for seamless looping
+  const clone = wrapper.innerHTML;
+  wrapper.innerHTML += clone;
+
+  function autoScroll() {
+    scrollPos += speed;
+    if (scrollPos >= wrapper.scrollWidth / 2) {
+      scrollPos = 0; // reset scroll to start
+    }
+    wrapper.scrollLeft = scrollPos;
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
+});
+</script>
+  
 </body>
 </html>
