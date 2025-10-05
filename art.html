@@ -41,53 +41,80 @@
 
 <script>
 document.querySelectorAll('.pan-wrapper').forEach(wrapper => {
-  let baseSpeed = 0.5; // minimum auto-scroll speed
-  let speed = baseSpeed;
-  let scrollPos = 0;
+  // Programmatic scrolling shouldn't be "smooth"
+  wrapper.style.scrollBehavior = 'auto';
+
+  const baseSpeed = 0.5;   // min speed (px/ms)
+  let speed = baseSpeed;   // current speed (px/ms), modulated by mouse
+  let dir = 1;             // 1 = right, -1 = left
   let paused = false;
-  let mouseX = 0;
 
-  // Duplicate the images for seamless looping
-  const clone = wrapper.innerHTML;
-  wrapper.innerHTML += clone;
+  // Wait for images so widths are accurate
+  const imgs = [...wrapper.querySelectorAll('img')];
+  Promise.all(imgs.map(img =>
+    img.complete ? Promise.resolve()
+                 : new Promise(res => { img.addEventListener('load', res, {once:true}); img.addEventListener('error', res, {once:true}); })
+  )).then(setup);
 
-  // Adjust scroll speed depending on mouse position
-  wrapper.addEventListener('mousemove', e => {
-    const rect = wrapper.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    const center = rect.width / 2;
-    const distanceFromCenter = Math.abs(mouseX - center);
+  function setup() {
+    // Measure original content width
+    const originals = [...wrapper.children].map(n => n.cloneNode(true));
+    const originalWidth = [...wrapper.children].reduce((w, el) => w + el.getBoundingClientRect().width, 0);
 
-    // Scale speed between baseSpeed and a maxSpeed (e.g., 3×)
-    const maxSpeed = 3.0;
-    const scale = distanceFromCenter / center; // 0 (center) → 1 (edge)
-    speed = baseSpeed + (maxSpeed - baseSpeed) * scale;
-  });
-
-  // Reset to base speed when the mouse leaves
-  wrapper.addEventListener('mouseleave', () => {
-    speed = baseSpeed;
-  });
-
-  // Optional: pause on hover/touch
-  wrapper.addEventListener('mouseenter', () => paused = true);
-  wrapper.addEventListener('mouseleave', () => paused = false);
-  wrapper.addEventListener('touchstart', () => paused = true, {passive: true});
-  wrapper.addEventListener('touchend', () => paused = false);
-
-  // Animate
-  function autoScroll() {
-    if (!paused) {
-      scrollPos += speed;
-      if (scrollPos >= wrapper.scrollWidth / 2) scrollPos = 0;
-      wrapper.scrollLeft = scrollPos;
+    // Duplicate until we have >2× content width (gives room to loop)
+    while (wrapper.scrollWidth < originalWidth * 2 + wrapper.clientWidth) {
+      originals.forEach(node => wrapper.appendChild(node.cloneNode(true)));
     }
-    requestAnimationFrame(autoScroll);
-  }
 
-  autoScroll();
+    let wrapWidth = originalWidth; // amount to modulo/wrap by
+
+    // Edge-tracking speed + direction
+    wrapper.addEventListener('mousemove', e => {
+      const r = wrapper.getBoundingClientRect();
+      const center = r.width / 2;
+      const x = e.clientX - r.left;
+      const scale = Math.abs(x - center) / center; // 0 at center → 1 at edges
+      const maxSpeed = 0.003 * r.width + baseSpeed; // scale with width a bit
+      speed = baseSpeed + (maxSpeed - baseSpeed) * scale;
+      dir = x >= center ? 1 : -1; // right side → scroll right, left → left
+    });
+    wrapper.addEventListener('mouseleave', () => { speed = baseSpeed; dir = 1; });
+
+    // Optional hard pause on hover/touch (set paused=true if you want a full stop)
+    wrapper.addEventListener('mouseenter', () => { /* paused = true; */ });
+    wrapper.addEventListener('mouseleave',  () => { paused = false; });
+    wrapper.addEventListener('touchstart', () => { paused = true; }, {passive:true});
+    wrapper.addEventListener('touchend',   () => { paused = false; });
+
+    // Recompute wrapWidth on resize (responsive images)
+    window.addEventListener('resize', () => {
+      const firstRunWidth = [...wrapper.children]
+        .slice(0, originals.length)
+        .reduce((w, el) => w + el.getBoundingClientRect().width, 0);
+      wrapWidth = firstRunWidth || wrapWidth;
+    });
+
+    let last = performance.now();
+    function tick(now) {
+      const dt = Math.min(40, now - last); // clamp delta (ms)
+      last = now;
+
+      if (!paused) {
+        wrapper.scrollLeft += dir * speed * dt; // px/ms × ms = px
+
+        // Seamless wrap: shift by exactly one "original width"
+        if (wrapper.scrollLeft >= wrapWidth) {
+          wrapper.scrollLeft -= wrapWidth;
+        } else if (wrapper.scrollLeft <= 0) {
+          wrapper.scrollLeft += wrapWidth;
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
 });
 </script>
-  
+
 </body>
 </html>
