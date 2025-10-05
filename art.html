@@ -38,55 +38,6 @@
     </div>
     
   </main>
-<script>
-document.querySelectorAll('.pan-wrapper').forEach(wrapper => {
-  let baseSpeed = 0.5; // minimum auto-scroll speed
-  let speed = baseSpeed;
-  let scrollPos = 0;
-  let paused = false;
-  let mouseX = 0;
-
-  // Duplicate the images for seamless looping
-  const clone = wrapper.innerHTML;
-  wrapper.innerHTML += clone;
-
-  // Adjust scroll speed depending on mouse position
-  wrapper.addEventListener('mousemove', e => {
-    const rect = wrapper.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    const center = rect.width / 2;
-    const distanceFromCenter = Math.abs(mouseX - center);
-
-    // Scale speed between baseSpeed and a maxSpeed (e.g., 3×)
-    const maxSpeed = 3.0;
-    const scale = distanceFromCenter / center; // 0 (center) → 1 (edge)
-    speed = baseSpeed + (maxSpeed - baseSpeed) * scale;
-  });
-
-  // Reset to base speed when the mouse leaves
-  wrapper.addEventListener('mouseleave', () => {
-    speed = baseSpeed;
-  });
-
-  // // Optional: pause on hover/touch
-  // wrapper.addEventListener('mouseenter', () => paused = true);
-  // wrapper.addEventListener('mouseleave', () => paused = false);
-  // wrapper.addEventListener('touchstart', () => paused = true, {passive: true});
-  // wrapper.addEventListener('touchend', () => paused = false);
-
-  // Animate
-  function autoScroll() {
-    if (!paused) {
-      scrollPos += speed;
-      if (scrollPos >= wrapper.scrollWidth / 2) scrollPos = 0;
-      wrapper.scrollLeft = scrollPos;
-    }
-    requestAnimationFrame(autoScroll);
-  }
-
-  autoScroll();
-});
-</script>
 
 </body>
 </html>
