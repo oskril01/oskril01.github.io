@@ -146,18 +146,21 @@ footer {
 }
 
 .pan-wrapper {
-  display: flex;                /* Use flexbox to align items horizontally */
-  overflow-x: auto;             /* Enable horizontal scrolling */
+  display: flex;                
+  overflow-x: auto;             
   overflow-y: hidden;
   scroll-behavior: smooth;
-  gap: 0;                       /* Optional: control spacing between images */
+  gap: 0;                       
   margin: 2em 0;
+  /* Optional fade edges */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .pan-wrapper img {
   display: inline-block;
   height: auto;
-  max-height: 90vh;            /* Prevent images from being too tall */
-  flex-shrink: 0;              /* Prevent images from shrinking */
+  max-height: 90vh;            
+  flex-shrink: 0;              
   object-fit: contain;
 }
