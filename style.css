@@ -164,3 +164,30 @@ footer {
   flex-shrink: 0;              
   object-fit: contain;
 }
+
+/* Citation styling */
+.citation {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555; /* softer gray tone for secondary text */
+  font-style: italic;
+  margin: 0.75em 0 1em 0;
+}
+
+.citation em {
+  font-style: italic; /* ensure italicized title renders properly */
+}
+
+.citation i {
+  font-style: italic; /* journal name also italic */
+}
+
+.citation a {
+  color: #004aad; /* Tufts-style academic blue */
+  text-decoration: none;
+  font-style: normal; /* keep DOI links upright */
+}
+
+.citation a:hover {
+  text-decoration: underline;
+}
