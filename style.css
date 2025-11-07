@@ -175,7 +175,7 @@ footer {
 }
 
 .citation em {
-  font-style: italic; /* ensure italicized title renders properly */
+  font-style: normal; /* ensure italicized title renders properly */
 }
 
 .citation i {
