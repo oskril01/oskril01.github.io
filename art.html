@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home – Owen Skriloff</title>
+  <title>Artwork – Owen Skriloff</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -22,22 +22,109 @@
     </nav>
   </header>
 
-  <main>
-    <h2>
-      Landscapes and Still Lifes
-    </h2>
-    <div class="pan-wrapper">
-      <img src="ArtworkPPTims/landscape1.jpeg" alt="Artwork Poster 2" loading="lazy"/><img src="ArtworkPPTims/landscape2.jpeg" alt="Artwork Poster 3" loading="lazy"/>
+  <main class="art-main">
+    <div class="art-tabs">
+      <button class="art-tab active" data-target="drawings">Drawings</button>
+      <button class="art-tab" data-target="paintings">Paintings</button>
     </div>
 
-    <h2>
-      Figure Drawings
-    </h2>
-    <div class="pan-wrapper">
-      <img src="ArtworkPPTims/figures.jpeg" alt="Artwork Poster 1" loading="lazy" />
+    <div class="art-grid active" id="drawings">
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_0891.jpg" data-full="images/art/drawings/full/IMG_0891.jpg" width="600" height="543" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_0894.jpg" data-full="images/art/drawings/full/IMG_0894.jpg" width="415" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_0895.jpg" data-full="images/art/drawings/full/IMG_0895.jpg" width="600" height="427" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_0896.jpg" data-full="images/art/drawings/full/IMG_0896.jpg" width="380" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_4832.jpg" data-full="images/art/drawings/full/IMG_4832.jpg" width="356" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7645.jpg" data-full="images/art/drawings/full/IMG_7645.jpg" width="462" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7649.jpg" data-full="images/art/drawings/full/IMG_7649.jpg" width="510" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7650.jpg" data-full="images/art/drawings/full/IMG_7650.jpg" width="433" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7652.jpg" data-full="images/art/drawings/full/IMG_7652.jpg" width="600" height="345" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7653.jpg" data-full="images/art/drawings/full/IMG_7653.jpg" width="600" height="303" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7654.jpg" data-full="images/art/drawings/full/IMG_7654.jpg" width="600" height="471" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7655.jpg" data-full="images/art/drawings/full/IMG_7655.jpg" width="600" height="450" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7656.jpg" data-full="images/art/drawings/full/IMG_7656.jpg" width="600" height="450" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7657.jpg" data-full="images/art/drawings/full/IMG_7657.jpg" width="450" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7659.jpg" data-full="images/art/drawings/full/IMG_7659.jpg" width="600" height="450" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7662.jpg" data-full="images/art/drawings/full/IMG_7662.jpg" width="450" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7668.jpg" data-full="images/art/drawings/full/IMG_7668.jpg" width="600" height="450" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7672.jpg" data-full="images/art/drawings/full/IMG_7672.jpg" width="450" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7673.jpg" data-full="images/art/drawings/full/IMG_7673.jpg" width="417" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7674.jpg" data-full="images/art/drawings/full/IMG_7674.jpg" width="431" height="600" alt="Drawing" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/drawings/thumb/IMG_7675.jpg" data-full="images/art/drawings/full/IMG_7675.jpg" width="393" height="600" alt="Drawing" loading="lazy" /></div>
     </div>
-    
+
+    <div class="art-grid" id="paintings">
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_0208.jpg" data-full="images/art/paintings/full/IMG_0208.jpg" width="392" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_0210.jpg" data-full="images/art/paintings/full/IMG_0210.jpg" width="450" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_0211.jpg" data-full="images/art/paintings/full/IMG_0211.jpg" width="450" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_0892.jpg" data-full="images/art/paintings/full/IMG_0892.jpg" width="508" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_0893.jpg" data-full="images/art/paintings/full/IMG_0893.jpg" width="600" height="456" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_0967.jpg" data-full="images/art/paintings/full/IMG_0967.jpg" width="412" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_1206.jpg" data-full="images/art/paintings/full/IMG_1206.jpg" width="397" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_1320.jpg" data-full="images/art/paintings/full/IMG_1320.jpg" width="462" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_1324.jpg" data-full="images/art/paintings/full/IMG_1324.jpg" width="396" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_1946.jpg" data-full="images/art/paintings/full/IMG_1946.jpg" width="496" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_3506.jpg" data-full="images/art/paintings/full/IMG_3506.jpg" width="486" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_3587.jpg" data-full="images/art/paintings/full/IMG_3587.jpg" width="600" height="568" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_3618.jpg" data-full="images/art/paintings/full/IMG_3618.jpg" width="325" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_4836.jpg" data-full="images/art/paintings/full/IMG_4836.jpg" width="482" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_4848.jpg" data-full="images/art/paintings/full/IMG_4848.jpg" width="504" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_4942.jpg" data-full="images/art/paintings/full/IMG_4942.jpg" width="600" height="528" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7636.jpg" data-full="images/art/paintings/full/IMG_7636.jpg" width="382" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7663.jpg" data-full="images/art/paintings/full/IMG_7663.jpg" width="600" height="450" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7664.jpg" data-full="images/art/paintings/full/IMG_7664.jpg" width="600" height="450" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7665.jpg" data-full="images/art/paintings/full/IMG_7665.jpg" width="600" height="450" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7666.jpg" data-full="images/art/paintings/full/IMG_7666.jpg" width="459" height="600" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7669.jpg" data-full="images/art/paintings/full/IMG_7669.jpg" width="600" height="450" alt="Painting" loading="lazy" /></div>
+          <div class="art-item"><img src="images/art/paintings/thumb/IMG_7757.jpg" data-full="images/art/paintings/full/IMG_7757.jpg" width="451" height="600" alt="Painting" loading="lazy" /></div>
+    </div>
   </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="" />
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.art-tab');
+    const grids = document.querySelectorAll('.art-grid');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        grids.forEach(g => g.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.target).classList.add('active');
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    document.querySelectorAll('.art-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.dataset.full;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
 
 </body>
 </html>
