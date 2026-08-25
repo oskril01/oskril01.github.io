@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research and Talks – Owen Skriloff</title>
+  <title>Publications – Owen Skriloff</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -14,7 +14,7 @@
     </div>
     <nav class="nav-right">
       <a href="index.html">Home</a>
-      <a href="research.html">Research & Talks</a>
+      <a href="research.html">Publications</a>
       <a href="projects.html">Project Archive</a>
       <a href="art.html">Artwork</a>
       <a href="cv.pdf" target="_blank">CV</a>
@@ -22,11 +22,33 @@
   </header>
 
   <main>
-    <h2>Research</h2>
+    <article class="research-item">
+      <h3>Dimensionless Controls of Plasticity in Continual Learning</h3>
 
-    <p>
-      Publications, preprints, and presentations.
-    </p>
+      <p class="citation">
+        Skriloff, O. (2026).
+        <em>Dimensionless Controls of Plasticity Under Alternating Tasks: From Evolutionary Biology to Continual Learning.</em>
+        <i>Proceedings of Machine Learning Research,</i> 334(2), 87–107.
+        <a href="https://proceedings.mlr.press/v334/skriloff26a.html" target="_blank" rel="noopener noreferrer">
+          https://proceedings.mlr.press/v334/skriloff26a.html
+        </a>
+      </p>
+
+      <div class="research-split">
+        <img src="images/tagds.png" alt="Alternating-task training trajectory" class="research-figure" />
+        <div class="research-description">
+
+          <div class="project-links">
+            <a href="https://proceedings.mlr.press/v334/skriloff26a.html" target="_blank">Publication</a>
+            <a href="pdfs/TAGDS_poster.pdf" target="_blank">Poster</a>
+          </div>
+
+          <p>
+            This project asks which biological controls of plasticity survive the translation from evolution to gradient descent. By training a network alternately on two label sets, four factors proposed in evolutionary biology are recast as quantities of training dynamics, and the system reduces to two dimensionless controls: the disagreement between tasks and the reach, the product of learning rate and switching period. We derive bounds showing that disagreement alone sets a floor on achievable performance, while both together bound forgetting. Across 9,720 training runs, the neutral set size central to the biological picture proves negligible, leaving a solvable toy model of continual learning with scaling laws and a heuristic for tuning.
+          </p>
+        </div>
+      </div>
+    </article>
 
     <article class="research-item">
       <h3>Physics Informed Architecture Design for Modeling Stem Cell Growth</h3>
@@ -43,10 +65,17 @@
       <div class="research-split">
         <img src="images/thesis.png" alt="Thesis figure" class="research-figure" />
         <div class="research-description">
+
+          <div class="project-links">
+            <a href="https://doi.org/10.1002/bit.70094" target="_blank">Publication</a>
+            <a href="pdfs/stemcellposter.pdf" target="_blank">Poster</a>
+          </div>
+
           <p>
             This project introduces a novel technique for evaluating how physics-informed machine learning architectures align with expected biological behavior. By repeatedly sampling trained models through data augmentation and incorporating a meta-learning stage, the approach reveals how different architectures treat key variables across dynamic systems. We demonstrate the method using stem cell growth, identifying which models best capture the impact of glucose and lactate dynamics on pluripotency and viable cell count. This framework offers a generalizable strategy for model selection in any coupled dynamical system, including applications in metabolic engineering, tissue modeling, and predictive biomanufacturing.
           </p>
         </div>
+      </div>
     </article>
 
   </main>
